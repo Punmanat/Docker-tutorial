@@ -11,5 +11,5 @@ app.set("views", path.join(__dirname, "./templates"));
 app.use(router);
 
 app.listen(port, () => {
-  console.log(`Server is running`);
+  console.log(`Server is running bind port docker on ${port}`);
 });
