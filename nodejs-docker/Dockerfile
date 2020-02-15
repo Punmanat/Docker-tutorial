@@ -1,15 +1,14 @@
 FROM node:alpine
 
-# Create app directory
-WORKDIR /app
+# Set app directory
+WORKDIR /usr/app
 
 # Install app dependencies
-COPY package.json /app
+COPY ./package.json ./
 RUN npm install
+COPY ./ ./
 
-# Bundle app source
-COPY . /app
-ENV PORT=3000
-EXPOSE 3000
 
+
+# Default command
 CMD [ "npm", "start" ]
