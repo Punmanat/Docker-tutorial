@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jiksor</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+      .box {
+        width: 50%;
+        height: 200px;
+      }
+      .box1-style {
+        background-color: greenyellow;
+      }
+      .box2-style {
+        background-color: rebeccapurple;
+      }
+      .box3-style {
+        background-color: rebeccapurple;
+      }
+      .box4-style {
+        background-color: greenyellow;
+      }
+      .box-sub {
+        width: 25%;
+        height: 100px;
+      }
+      .box1-sub-style {
+        background-color: yellowgreen;
+      }
+      .box2-sub-style {
+        background-color: rebeccapurple;
+      }
+      .box3-sub-style {
+        background-color: yellowgreen;
+      }
+      .box4-sub-style {
+        background-color: rebeccapurple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-2">
+      <div class="row">
+        <div
+          id="hole1"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+          class="box box1-style col-6"
+        ></div>
+        <div
+          id="hole1"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+          class="box box2-style col-6"
+        ></div>
+      </div>
+      <div class="row">
+        <div
+          id="hole1"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+          class="box box3-style col-6"
+        ></div>
+        <div
+          id="hole1"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+          class="box box4-style col-6"
+        ></div>
+      </div>
+
+      <div class="row mt-3">
+        <div
+          id="hole1"
+          ontouchmove="myFunction(event)"
+          class="box-sub box1-sub-style col-sm-3 col-6"
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="hole1"
+          ontouchmove="myFunction(event)"
+          class="box-sub box2-sub-style col-sm-3 col-6"
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="hole1"
+          ontouchmove="myFunction(event)"
+          class="box-sub box3-sub-style col-sm-3 col-6"
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+        <div
+          id="hole1"
+          ontouchmove="myFunction(event)"
+          class="box-sub box4-sub-style col-sm-3 col-6"
+          draggable="true"
+          ondragstart="drag(event)"
+        ></div>
+      </div>
+      <p id="demo"></p>
+    </div>
+  </body>
+  <script>
+      let bgColor;
+    function myFunction(event) {
+      var x = event.touches[0].clientX;
+      var y = event.touches[0].clientY;
+      drag(event)
+    }
+
+    // Drag and Drop
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(event) {
+      // console.log(ev)
+      const style = getComputedStyle(event.target)
+      bgColor = style.backgroundColor
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      console.log(ev)
+      ev.target.style.backgroundColor = bgColor
+
+    }
+  </script>
+</html>
